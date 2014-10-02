@@ -6,9 +6,9 @@ class BirthdayGreeting
   end
 
   def send_greetings date
-    todays_birthdays = @employee_repository.get_emails_of_employees_with_birthday date
-    todays_birthdays.each do |email, fname|
-      @email_service.send_birthday_email(email, fname)
+    todays_birthdays = @employee_repository.get_employees_with_birthday date
+    todays_birthdays.each do |employee|
+      @email_service.send_birthday_email(employee)
     end
   end
 end
